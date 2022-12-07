@@ -1,0 +1,105 @@
+<H2>Hello la chance la creativité</H2>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+ <li class="active">
+        <a class="clickable" (click)="onSelectedProducts()">Home
+        <span class="caret"></span></a>
+       
+
+
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <li><a class="clickable" (click)="onProductsPromo()">Promotion</a></li>
+          <li><a class="clickable"(click)="onProductsDispo()">Disponible</a></li>
+        </ul>
+              </li>
+              
+              
+              
+        
+        
+        
+        
+        
+        
+          <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Articles
+        <span class="caret"></span></a>
+        
+        
+        
+      
+
+      
+        
+        
+      
+ 
+ 
+ 
+      
+      
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  <ul class="nav navbar-nav pull-right">
+ 
+        <li>
+        <button (click)="onLogout()">
+        <span class="glyphicon glyphicon-log-out"></span>
+        </button>
+        </li>
+        
+        
+        
+        </ul>
+  
+  
+
+    
+    
+    
+    
+    
+  </div>
+</nav>
+
+
+<div class="col-md-9">
+
+
+</div>
+
+<div class="container">
+<div class="col-md-3">
+<ul class="list-group" *ngIf="categories">
+<li [ngClass]="currentCategories==c?'active':''" (click)="getProductsByCat(c)" class="list-group-item clickable" *ngFor="let c of categories._embedded.categories">
+{{c.name}}
+
+</li>
+</ul>
+
+</div>
+<div class="col-md-9">
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

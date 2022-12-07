@@ -1,0 +1,86 @@
+
+<H4>HI</H4>
+<div *ngIf="products">
+	<div>
+		<h3>{{title}}</h3>
+	</div>
+	<div *ngFor="let p of products._embedded.products">
+		<div class="col-md-4">
+			<div class="panel panel-default heigted">
+				<div class="panel-heading">{{p.name}}</div>
+				<div class="panel-body">
+<img height="100"
+						(click)="onProductDetails(p)"
+					
+						src="{{this.catService.host+'/photoProduct/'+p.id+'?ts='+getTs()}}">
+					<div *ngIf="authService.isAdmin()">
+						<button (click)="onEditPhpto(p)">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button>
+
+
+						<p *ngIf="editPhoto==true && currentProduct==p">
+							<input type="file" (change)="onSelectedFile($event)">
+							<button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
+							{{progress}}
+						</p>
+					</div>
+
+
+					<div>{{p.description}}</div>
+					<div>{{p.currentPrice|number:'0.2'}}</div>
+
+					<div>{{p.name}}</div>
+					
+					 <div>
+        <span *ngIf="p.promotion">
+                <img src="assets/images/promotion.png" class="img-thumbnail img-circle" style="width: 40px">
+              </span>
+          <span *ngIf="p.selected">
+                <img src="assets/images/selected.png" class="img-thumbnail img-circle" style="width: 40px">
+              </span>
+          <span *ngIf="p.available">
+                <img src="assets/images/available.png" class="img-thumbnail img-circle"  style="width: 40px">
+              </span>
+        </div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div>
+				 <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(currentProduct)">
+            <label class="control-label">Quantité :</label>
+            <input type="number" name="quantity" [(ngModel)]="p.quantity" ngModel style="width: 40px">
+            <button>
+              <img height="20" src="assets/images/caddy.png">
+            </button>
+          </form>	
+				</div>	
+					
+					
+					
+					
+					
+					
+
+
+<div>
+<form></form>
+
+</div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<router-outlet></router-outlet>
