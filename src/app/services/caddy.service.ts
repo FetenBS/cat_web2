@@ -20,13 +20,13 @@ public caddies:Map<string,Caddy>=new Map();
   public addProductToCaddy(product:Product){
 
       let caddy=this.caddies.get(this.currentCaddyName);
-     // let itemProduct:ItemProduct;
-      let  Productitem=caddy?.items.get(product.id);
+      let Productitem:ProductItem | undefined;
+        Productitem=caddy?.items.get(product.id);
      
 	
-if( Productitem==undefined){
+if( Productitem){
 	Productitem=new ProductItem();
-	 Productitem.quantity=+product.quantity;
+	 Productitem.quantity+=product.quantity;
 	 //itemProduct.price=product.currentPrice;
 	  //itemProduct.product=product;
 	 
