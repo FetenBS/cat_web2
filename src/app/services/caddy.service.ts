@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Caddy } from '../model/caddy.model';
-import {ProductItem} from '../model/item-product.model';
+import {ProductItem} from '../model/product-item.model';
 import{Product} from '../model/product.model';
 
 type NewType = Caddy;
@@ -21,23 +21,23 @@ public caddies:Map<string,Caddy>=new Map();
 
       let caddy=this.caddies.get(this.currentCaddyName);
      // let itemProduct:ItemProduct;
-     let  itemProduct=caddy?.items.get(product.id);
+      let  Productitem=caddy?.items.get(product.id);
      
 	
-if( itemProduct==undefined){
-	itemProduct=new ProductItem();
-	 itemProduct.quantity=product.quantity;
-	// itemProduct.price=product.currentPrice;
+if( Productitem==undefined){
+	Productitem=new ProductItem();
+	 Productitem.quantity=+product.quantity;
+	 //itemProduct.price=product.currentPrice;
 	  //itemProduct.product=product;
 	 
 }else{
-	itemProduct=new ProductItem();
+	Productitem=new ProductItem();
 	
-	 itemProduct.quantity+=product.quantity;
-	 itemProduct.price=product.currentPrice;
-	 itemProduct.product=product;
+	 Productitem.quantity+=product.quantity;
+	 Productitem.price=product.currentPrice;
+	 Productitem.product=product;
 	 if(caddy)
-	caddy.items.set(product.id,itemProduct)
+	caddy.items.set(product.id,Productitem)
 }
    
       
