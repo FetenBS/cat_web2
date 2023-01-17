@@ -4,7 +4,7 @@ import{ActivatedRoute,Router,NavigationEnd} from  '@angular/router';
 import{HttpEventType, HttpResponse,HttpProgressEvent} from '@angular/common/http';
 import{AuthentificationService} from'../services/authentification.service';
 import{Product} from '../model/product.model';
-
+import{CaddyService} from'../services/caddy.service';
 
 
 @Component({
@@ -27,7 +27,7 @@ public total:number=0;
 
 
   constructor(public catService:CatalogueService,private route:ActivatedRoute, private router:Router,
-  public authService:AuthentificationService) { 
+  public authService:AuthentificationService,public caddyService:CaddyService) { 
 
 
 }
@@ -164,7 +164,10 @@ onUpdateProduct(data:any){
           return false;}
      }return '';
   }
-  onAddProductToCaddy(p:any){
+  onAddProductToCaddy(p:Product):void{
+	  
+	  this.caddyService.addProductToCaddy(p);
+	  
 	  
   }
   onProductDetails(p:Product){
@@ -172,6 +175,7 @@ onUpdateProduct(data:any){
 	  this.router.navigateByUrl("product-detail/"+url);
 	  
   }
+
 }
 
 

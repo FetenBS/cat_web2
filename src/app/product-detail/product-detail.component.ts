@@ -4,7 +4,7 @@ import{CatalogueService} from'../catalogue.service';
 import{AuthentificationService} from'../services/authentification.service';
 import{Product} from '../model/product.model';
 import{HttpEventType, HttpResponse,HttpProgressEvent} from '@angular/common/http';
-import{CaddyService} from '../caddy.service';
+import{CaddyService} from '../services/caddy.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -101,7 +101,7 @@ onUpdateProduct(data:any){
       this.router.navigateByUrl("/login");
     }
     else{
-      this.caddyService.addProduct(p);
+      this.caddyService. addProductToCaddy(p);
     }
 	  
   }

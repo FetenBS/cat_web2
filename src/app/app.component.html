@@ -50,7 +50,10 @@
       <li><a href="#">Page 3</a></li>
     </ul>
   <ul class="nav navbar-nav pull-right">
+ <li>
+ <a>{{caddyService.getCurrentCaddy().name}} | {{caddyService.getCurrentCaddy().items.size}}</a>
  
+ </li>
         <li>
         <button (click)="onLogout()">
         <span class="glyphicon glyphicon-log-out"></span>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CatalogueService} from './catalogue.service'
 import{Router,ActivatedRoute} from  '@angular/router';
 import{AuthentificationService} from'./services/authentification.service';
+import{CaddyService} from'./services/caddy.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +12,8 @@ export class AppComponent implements OnInit {
 	public categories:any;
 	public products:any;
 	public currentCategories:any;
-	constructor(private catService : CatalogueService,private router:Router, private authService:AuthentificationService){}
+	constructor(private catService : CatalogueService,private router:Router, private authService:AuthentificationService
+	, public caddyService:CaddyService){}
   ngOnInit(): void {
      this.authService.loadAuthentificatedUserFromLocalStorage();
       this.getCategories();
