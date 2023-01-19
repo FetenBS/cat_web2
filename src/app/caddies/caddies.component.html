@@ -1,0 +1,28 @@
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="panel panel-heading">
+
+<div class="panel-heading">Caddies</div>
+<div class=panel-body>
+
+<table class="table table-striped">
+<tr><th>ID</th><th>Name</th><th>Quantity</th><th>Prix</th></tr>
+<tbody>
+<tr *ngFor="let pi of caddyService.getCurrentCaddy().items.values()">
+
+<td>{{pi.id}}</td>
+<td>{{pi.name}}</td>
+<td>{{pi.quantity}}</td>
+<td>{{pi.price}}</td>
+</tr>
+<tr>
+<td colspan="3">Total</td>
+
+</tr>
+</tbody>
+</table>
+
+
+
+</div>
+</div>
+</div>

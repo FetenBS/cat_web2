@@ -175,6 +175,7 @@ onUpdateProduct(data:any){
 	  this.router.navigateByUrl("product-detail/"+url);
 	  
   }
+ 
 
 }
 

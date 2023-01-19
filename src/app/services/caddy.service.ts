@@ -26,18 +26,20 @@ public caddies:Map<string,Caddy>=new Map();
 	
 if( Productitem){
 	Productitem=new ProductItem();
-	 Productitem.quantity+=product.quantity;
-	 //itemProduct.price=product.currentPrice;
-	  //itemProduct.product=product;
+	Productitem.quantity+=product.quantity;
+	// Productitem.price=product.currentPrice;
+	  //Productitem.product=product;
 	 
 }else{
 	Productitem=new ProductItem();
-	
-	 Productitem.quantity+=product.quantity;
-	 Productitem.price=product.currentPrice;
-	 Productitem.product=product;
+	Productitem.id=product.id;
+	Productitem.name=product.name;
+	Productitem.quantity=product.quantity;
+	Productitem.price=product.currentPrice;
+	Productitem.product=product;
 	 if(caddy)
 	caddy.items.set(product.id,Productitem)
+	this.saveCaddies();
 }
    
       
@@ -46,7 +48,21 @@ if( Productitem){
 	
 	
 		  return this.caddies.get(this.currentCaddyName)!;
-	  }}
+	  }
+	  
+	public getTotal():number{
+	let total=0;
+	let items:IterableIterator<ProductItem>=this.getCurrentCaddy().items.values();
+	for (let pi of items){
+	total+=pi.price*pi.quantity;
+	}
+	return total;
+}
+	 public saveCaddies(){
+		 localStorage.setItem('myCaddies',JSON.stringify(this.caddies));
+	 } 
+	  
+	  }
   
 	  
   

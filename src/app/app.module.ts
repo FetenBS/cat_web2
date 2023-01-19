@@ -8,12 +8,14 @@ import{FormsModule} from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './login/login.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CaddiesComponent } from './caddies/caddies.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     LoginComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CaddiesComponent
   ],
   imports: [
     BrowserModule,
