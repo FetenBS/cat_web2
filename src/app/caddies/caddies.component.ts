@@ -11,5 +11,5 @@ export class CaddiesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-getTotal(){}
+
 }

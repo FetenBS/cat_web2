@@ -13,7 +13,11 @@ currentCaddyName:string="Caddy1";
 
 public caddies:Map<string,Caddy>=new Map();
   constructor() {
-	 let caddy=new Caddy(this.currentCaddyName);
+	  let caddies=localStorage.getItem("myCaddies");
+	
+		 let caddy=new Caddy(this.currentCaddyName); 
+	 
+	
 	 this.caddies.set(this.currentCaddyName,caddy);
    }
   
